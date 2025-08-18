@@ -8,7 +8,7 @@ from openai import OpenAI
 from tqdm import trange, tqdm
 
 from virtual_lab.agent import Agent
-from virtual_lab.constants import CONSISTENT_TEMPERATURE, PUBMED_TOOL_DESCRIPTION
+from virtual_lab.constants import CONSISTENT_TEMPERATURE, PUBMED_TOOL_DESCRIPTION, API_BASE_URL
 from virtual_lab.prompts import (
     individual_meeting_agent_prompt,
     individual_meeting_critic_prompt,
@@ -92,7 +92,7 @@ def run_meeting(
     start_time = time.time()
 
     # Set up client
-    client = OpenAI()
+    client = OpenAI(base_url = API_BASE_URL) # 使用GPT以外的模型
 
     # Set up team
     if meeting_type == "team":
