@@ -152,7 +152,7 @@ def run_tools(run: Run) -> list[dict[str, str]]:
 
     # Loop through each tool in the required action and run it
     for tool in run.required_action.submit_tool_outputs.tool_calls:
-        if tool.function.name == PUBMED_TOOL_NAME:
+        if tool.function.name == PUBMED_TOOL_NAME: # 目前只支持 PUBMED_TOOL_NAME 工具
             # Extract the query from the tool arguments
             args_dict = json.loads(tool.function.arguments)
 

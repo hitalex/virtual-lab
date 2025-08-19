@@ -2,8 +2,8 @@
 
 #DEFAULT_MODEL = "gpt-4o-2024-08-06"
 
-API_BASE_URL = "https://api.deepseek.com"
-DEFAULT_MODEL = "deepseek-chat"
+API_BASE_URL = "https://aihubmix.com/v1"
+DEFAULT_MODEL = "gpt-4.1" # 其他家的模型可能不完全支持GPT模型的能力
 
 # Prices in USD as of January 18, 2025 (https://openai.com/api/pricing/)
 MODEL_TO_INPUT_PRICE_PER_TOKEN = {
