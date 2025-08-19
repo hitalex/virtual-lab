@@ -1,6 +1,10 @@
 """Holds constants."""
 
-DEFAULT_MODEL = "gpt-4o-2024-08-06"
+#DEFAULT_MODEL = "gpt-4o-2024-08-06"
+#API_BASE_URL = "https://api.openai.com/v1"
+# chage model API
+API_BASE_URL = "https://api.deepseek.com/v1"
+DEFAULT_MODEL = "deepseek-chat"
 
 # Prices in USD as of January 18, 2025 (https://openai.com/api/pricing/)
 MODEL_TO_INPUT_PRICE_PER_TOKEN = {
