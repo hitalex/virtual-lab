@@ -103,7 +103,8 @@ def run_meeting(
     # Set up tools
     assistant_params = {"tools": [PUBMED_TOOL_DESCRIPTION]} if pubmed_search else {}
 
-    # Set up the assistants
+    # Set up the assistants, i.e. the agents
+    # 即创建多个team member的对话链接
     agent_to_assistant = {
         agent: client.beta.assistants.create(
             name=agent.title,
@@ -123,10 +124,12 @@ def run_meeting(
     tool_token_count = 0
 
     # Set up the thread
+    # 但需要明确这里thread的含义，具体保留了什么context：https://platform.openai.com/docs/api-reference/threads
     thread = client.beta.threads.create()
 
     # Initial prompt for team meeting
     if meeting_type == "team":
+        # 这里只是将msg content放入到thread中：https://platform.openai.com/docs/assistants/quickstart?lang=python#step-3-add-a-message-to-the-thread
         client.beta.threads.messages.create(
             thread_id=thread.id,
             role="user",
@@ -202,7 +205,7 @@ def run_meeting(
             )
 
             # 代码理解：针对不同的agent，根据角色设定，构建不同的prompt内容，然后以user的角色发送给assistant，assistant返回的内容作为该agent的回复
-            # 在这种情况下就需要自行管理上下文信息，完全不能使用大模型的多轮对话方法
+            # 而且，不同assistant的回复结果同样会自动存储到该thread中，这种设计使得不同agent之间的对话可以互相看到，形成一个完整的讨论上下文，就像是在“会议”中一样。
             # Run the agent
             run = client.beta.threads.runs.create_and_poll(
                 thread_id=thread.id,
@@ -211,6 +214,7 @@ def run_meeting(
                 temperature=temperature,
             )
 
+            # 如果assistant/agent 返回的消息中指示需要执行某个函数，则根据函数名称执行并获取执行结果
             # Check if run requires action
             if run.status == "requires_action":
                 # Run the tools
@@ -226,6 +230,8 @@ def run_meeting(
                     thread_id=thread.id, run_id=run.id, tool_outputs=tool_outputs
                 )
 
+                # 将函数执行结果以message形式放入到thread（即对话上下文）中
+                # 疑问：这里并没有获取agent的返回内容
                 # Add tool outputs to the thread so it's visible for later rounds
                 client.beta.threads.messages.create(
                     thread_id=thread.id,
