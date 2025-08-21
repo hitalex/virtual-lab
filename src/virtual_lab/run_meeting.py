@@ -68,6 +68,8 @@ def run_meeting(
     :param return_summary: Whether to return the summary of the meeting.
     :return: The summary of the meeting (i.e., the last message) if return_summary is True, else None.
     """
+    print(f"Running meeting of type {meeting_type} with agenda: {agenda}")
+
     # Validate meeting type
     if meeting_type == "team":
         if team_lead is None or team_members is None or len(team_members) == 0:
