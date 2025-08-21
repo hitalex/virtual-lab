@@ -201,6 +201,8 @@ def run_meeting(
                 content=prompt,
             )
 
+            # 代码理解：针对不同的agent，根据角色设定，构建不同的prompt内容，然后以user的角色发送给assistant，assistant返回的内容作为该agent的回复
+            # 在这种情况下就需要自行管理上下文信息，完全不能使用大模型的多轮对话方法
             # Run the agent
             run = client.beta.threads.runs.create_and_poll(
                 thread_id=thread.id,
