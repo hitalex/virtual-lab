@@ -168,7 +168,7 @@ def run_tools(run: Run) -> list[dict[str, str]]:
 
     return tool_outputs
 
-# 采用chat接口后，该函数已废弃
+
 def get_messages(client: OpenAI, thread_id: str) -> list[dict]:
     """Gets messages from a thread.
 
