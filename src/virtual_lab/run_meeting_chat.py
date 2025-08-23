@@ -206,42 +206,7 @@ def run_meeting(
             if response_message.tool_calls:
                 
                 # Run the tools using the existing run_tools function
-                # Create mock tool objects with the required structure
-                class MockTool:
-                    def __init__(self, tool_id, function_name, function_args):
-                        self.id = tool_id
-                        self.function = MockFunction(function_name, function_args)
-                
-                class MockFunction:
-                    def __init__(self, name, arguments):
-                        self.name = name
-                        self.arguments = arguments
-                
-                # Create mock tools from the tool calls
-                mock_tools = []
-                for tool_call in response_message.tool_calls:
-                    mock_tools.append(MockTool(
-                        tool_id=tool_call.id,
-                        function_name=tool_call.function.name,
-                        function_args=tool_call.function.arguments
-                    ))
-                
-                # Create a mock run object with the required structure
-                class MockRun:
-                    def __init__(self, tools):
-                        self.required_action = MockRequiredAction(tools)
-                        self.status = "requires_action"
-                
-                class MockRequiredAction:
-                    def __init__(self, tools):
-                        self.submit_tool_outputs = MockSubmitToolOutputs(tools)
-                
-                class MockSubmitToolOutputs:
-                    def __init__(self, tools):
-                        self.tool_calls = tools
-                
-                mock_run = MockRun(mock_tools)
-                tool_outputs = run_tools(mock_run)
+                tool_outputs = run_tools(response_message.tool_calls)
 
                 # Update tool token count
                 tool_token_count += sum(

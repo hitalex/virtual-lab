@@ -17,6 +17,7 @@ MODEL_TO_INPUT_PRICE_PER_TOKEN = {
     "gpt-4o-2024-05-13": 5 / 10**6,
     "gpt-4o-mini-2024-07-18": 0.15 / 10**6,
     "o1-mini-2024-09-12": 3 / 10**6,
+    "deepseek-chat": 4 / 10**6, # not in cache
 }
 
 MODEL_TO_OUTPUT_PRICE_PER_TOKEN = {
@@ -25,6 +26,7 @@ MODEL_TO_OUTPUT_PRICE_PER_TOKEN = {
     "gpt-4o-2024-05-13": 15 / 10**6,
     "gpt-4o-mini-2024-07-18": 0.6 / 10**6,
     "o1-mini-2024-09-12": 12 / 10**6,
+    "deepseek-chat": 12 / 10**6,
 }
 
 FINETUNING_MODEL_TO_INPUT_PRICE_PER_TOKEN = {

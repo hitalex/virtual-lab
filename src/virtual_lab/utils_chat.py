@@ -141,17 +141,25 @@ def run_pubmed_search(
     return combined_text
 
 
-def run_tools(run: Run) -> list[dict[str, str]]:
-    """Runs the tools in a required action.
+def run_tools(run_or_tool_calls) -> list[dict[str, str]]:
+    """Runs the tools in a required action or from chat completion tool calls.
 
-    :param run: The run to run tools for.
+    :param run_or_tool_calls: Either a Run object or a list of tool calls from chat completion.
     :return: A list of tool outputs.
     """
     # Define the list to store tool outputs
     tool_outputs = []
 
-    # Loop through each tool in the required action and run it
-    for tool in run.required_action.submit_tool_outputs.tool_calls:
+    # Determine if input is a Run object or list of tool calls
+    if hasattr(run_or_tool_calls, 'required_action'):
+        # It's a Run object
+        tool_calls = run_or_tool_calls.required_action.submit_tool_outputs.tool_calls
+    else:
+        # It's a list of tool calls from chat completion
+        tool_calls = run_or_tool_calls
+
+    # Loop through each tool and run it
+    for tool in tool_calls:
         if tool.function.name == PUBMED_TOOL_NAME: # 目前只支持 PUBMED_TOOL_NAME 工具
             # Extract the query from the tool arguments
             args_dict = json.loads(tool.function.arguments)
