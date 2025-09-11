@@ -1,14 +1,14 @@
 """Holds constants."""
 
-DEFAULT_MODEL = "gpt-4o"
+#DEFAULT_MODEL = "gpt-4o"
 #API_BASE_URL = "https://api.openai.com/v1"
 
 # chage model API
-API_BASE_URL = "https://api.deepseek.com/v1"
-DEFAULT_MODEL = "deepseek-chat"
+#API_BASE_URL = "https://api.deepseek.com/v1"
+#DEFAULT_MODEL = "deepseek-chat"
 
-#API_BASE_URL = "https://aihubmix.com/v1"
-#DEFAULT_MODEL = "gpt-4.1" # 其他家的模型可能不完全支持GPT模型的能力
+API_BASE_URL = "https://aihubmix.com/v1"
+DEFAULT_MODEL = "gpt-4.1" # 其他家的模型可能不完全支持GPT模型的能力
 
 # Prices in USD as of January 18, 2025 (https://openai.com/api/pricing/)
 MODEL_TO_INPUT_PRICE_PER_TOKEN = {
@@ -17,7 +17,8 @@ MODEL_TO_INPUT_PRICE_PER_TOKEN = {
     "gpt-4o-2024-05-13": 5 / 10**6,
     "gpt-4o-mini-2024-07-18": 0.15 / 10**6,
     "o1-mini-2024-09-12": 3 / 10**6,
-    "deepseek-chat": 4 / 10**6, # not in cache
+    "deepseek-chat": 4 / 10**6, # price in RMB
+    "gpt-4.1": 2 / 10**6,
 }
 
 MODEL_TO_OUTPUT_PRICE_PER_TOKEN = {
@@ -26,7 +27,8 @@ MODEL_TO_OUTPUT_PRICE_PER_TOKEN = {
     "gpt-4o-2024-05-13": 15 / 10**6,
     "gpt-4o-mini-2024-07-18": 0.6 / 10**6,
     "o1-mini-2024-09-12": 12 / 10**6,
-    "deepseek-chat": 12 / 10**6,
+    "deepseek-chat": 12 / 10**6, # price in RMB
+    "gpt-4.1": 8 / 10**6,
 }
 
 FINETUNING_MODEL_TO_INPUT_PRICE_PER_TOKEN = {

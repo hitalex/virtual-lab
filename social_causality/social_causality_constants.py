@@ -10,8 +10,8 @@ num_iterations = 3
 num_rounds = 3
 
 # Models
-#model = "gpt-4o"
-model = "deepseek-chat"
+model = "gpt-4.1"
+#model = "deepseek-chat"
 
 model_mini = "gpt-4o-mini"
 
@@ -38,9 +38,9 @@ discussions_phase_to_dir = {phase: discussions_dir / phase for phase in phases}
 # Prompts
 #background_prompt = "You are working on a research project to use machine learning to develop antibodies or nanobodies for the newest variant of the SARS-CoV-2 spike protein that also, ideally, have activity against other circulating minor variants and past variants."
 
-#background_prompt = "You are working on a research project to use machine learning and artificial intelligence methods to design new social attribution theories that could better explain the attribution of responsibility in realworld social events in different scenarios, for example, the Shaver's Responsibility Attribution Model and Malle’s PMoB Attribution Model . In addition, the new developed theories could be an extension of existing theories or combination of multiple existing theories."
+background_prompt = "You are working on a research project to use machine learning and artificial intelligence methods to design new social attribution theories that could better explain the attribution of responsibility in realworld social events in different scenarios, for example, the Shaver's Responsibility Attribution Model and Malle’s PMoB Attribution Model . In addition, the new developed theories could be an extension of existing theories or combination of multiple existing theories."
 
-background_prompt = "You are working on a research project using machine learning and artificial intelligence methods to test whether the responsibility attribution behavior of LLMs aligns with existing social attribution theories, specifically, Malle’s PMoB Attribution Model, a type of theory of blame. For LLMs, the attribution process of responsibility can be obtained by the chain-of-thought prompting."
+#background_prompt = "You are working on a research project using machine learning and artificial intelligence methods to test whether the responsibility attribution behavior of LLMs aligns with existing social attribution theories, specifically, Malle’s PMoB Attribution Model, a type of theory of blame. For LLMs, the attribution process of responsibility can be obtained by the chain-of-thought prompting."
 
 
 #nanobody_prompt = "Your team previous decided to modify existing nanobodies to improve their binding to the newest variant of the SARS-CoV-2 spike protein."
@@ -93,34 +93,34 @@ scientific_critic = SCIENTIFIC_CRITIC
 
 # 以下Agent是需要运行Team Selection后才能确定的信息
 # Specialized science agents
-computational_social_scientist = Agent(
-    title="Computational Social Scientist",
-    expertise="formalizing psychological theories into computational models, experimental design for testing human vs. algorithmic behavior, statistical analysis of qualitative social data",
-    goal="to bridge the gap between social theory and computational methods, ensuring the experimental design is both psychologically valid and methodologically sound",
-    role="translate Malle's PMoB model into testable computational metrics, design the experimental vignettes/scenarios, and co-analyze the results for theoretical interpretability",
+social_attribution_agent = Agent(
+    title="Social Attribution Theorist",
+    expertise="social psychology, attribution theory, responsibility judgment frameworks (e.g., Shaver's and Malle's models), theory extension",
+    goal="provide deep theoretical knowledge of attribution processes, identify gaps and opportunities for extension or combination of existing theories, and aid in formulating hypotheses for computational modeling",
+    role="ensure that our computational approach is grounded in robust social attribution theory, guide the operationalization of constructs, and interpret results in the context of real-world social responsibility attribution",
     model=model,
 )
 
-llm_research_specialist = Agent(
-    title="LLM Research & Prompting Specialist",
-    expertise="advanced prompt engineering (chain-of-thought, reason-act), mechanistic interpretability of transformer-based models, benchmarking and evaluating LLM behavior",
-    goal="to develop robust, unbiased prompting strategies to accurately elicit and capture the LLM's internal attribution reasoning process",
-    role="design and implement the chain-of-thought prompting strategies, manage the LLM API interactions, and develop the pipeline for extracting structured data from free-text responses",
+machine_learning_scientist = Agent(
+    title="Machine Learning Scientist",
+    expertise="deep learning, large language models (LLMs), natural language processing, interpretability and alignment of AI systems, computational modeling of human behavior",
+    goal="design and implement machine learning experiments, integrate attribution theory constructs into LLM prompts and analyses, and develop methods to quantitatively evaluate LLM outputs for alignment with human attribution patterns",
+    role="lead the development of computational pipelines, data collection, and evaluation metrics for testing LLM social attributions, and optimize models for prediction and analysis of attribution judgments",
     model=model,
 )
 
-data_scientist = Agent(
-    title="Data Scientist & Quantitative Methodologist",
-    expertise="statistical analysis of complex datasets, design of experiments (DoE), developing quantitative metrics for model evaluation, hypothesis testing",
-    goal="to design the statistical framework to rigorously compare the LLM's outputs against theoretical benchmarks and ensure results are significant",
-    role="develop computational metrics to quantify 'alignment', perform all statistical tests, and analyze the results to determine the degree of fit (or divergence) with PMoB",
+experimental_methodologist = Agent(
+    title="Experimental Methodologist & Computational Modeler",
+    expertise="experimental design, behavioral science, statistical analysis, validation of computational models, agent-based simulation, quantitative analysis of social processes",
+    goal="design and oversee human subject studies to collect comparison data, ensure robust validation of computational approaches, and develop computational frameworks to simulate and test the extension or combination of social attribution theories",
+    role="develop rigorous experimental protocols for both computational and human studies, build and refine simulation models, analyze alignment between LLM-generated attributions and theory-driven expectations, and guide the interpretation of experimental results in light of theory",
     model=model,
 )
 
 # Team members
 team_members = (
-    computational_social_scientist,
-    llm_research_specialist,
-    data_scientist,
+    social_attribution_agent,
+    machine_learning_scientist,
+    experimental_methodologist,
     scientific_critic,
 )
