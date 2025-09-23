@@ -38,9 +38,9 @@ discussions_phase_to_dir = {phase: discussions_dir / phase for phase in phases}
 # Prompts
 #background_prompt = "You are working on a research project to use machine learning to develop antibodies or nanobodies for the newest variant of the SARS-CoV-2 spike protein that also, ideally, have activity against other circulating minor variants and past variants."
 
-background_prompt = "You are working on a research project to use machine learning and artificial intelligence methods to design new social attribution theories that could better explain the attribution of responsibility in realworld social events in different scenarios, for example, the Shaver's Responsibility Attribution Model and Malle’s PMoB Attribution Model . In addition, the new developed theories could be an extension of existing theories or combination of multiple existing theories."
+#background_prompt = "You are working on a research project to use machine learning and artificial intelligence methods to design new social attribution theories that could better explain the attribution of responsibility in realworld social events in different scenarios, for example, the Shaver's Responsibility Attribution Model and Malle’s PMoB Attribution Model . In addition, the new developed theories could be an extension of existing theories or combination of multiple existing theories."
 
-#background_prompt = "You are working on a research project using machine learning and artificial intelligence methods to test whether the responsibility attribution behavior of LLMs aligns with existing social attribution theories, specifically, Malle’s PMoB Attribution Model, a type of theory of blame. For LLMs, the attribution process of responsibility can be obtained by the chain-of-thought prompting."
+background_prompt = "You are working on a research project which focuses on using machine learning and artificial intelligence methods to test whether the responsibility attribution behavior of LLMs aligns with existing social attribution theories, specifically, Malle’s PMoB Attribution Model, a type of theory of blame. For LLMs, the attribution process of responsibility can be obtained by the chain-of-thought prompting."
 
 
 #nanobody_prompt = "Your team previous decided to modify existing nanobodies to improve their binding to the newest variant of the SARS-CoV-2 spike protein."
