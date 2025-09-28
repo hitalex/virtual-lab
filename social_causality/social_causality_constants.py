@@ -93,34 +93,34 @@ scientific_critic = SCIENTIFIC_CRITIC
 
 # 以下Agent是需要运行Team Selection后才能确定的信息
 # Specialized science agents
-social_attribution_agent = Agent(
-    title="Social Attribution Theorist",
-    expertise="social psychology, attribution theory, responsibility judgment frameworks (e.g., Shaver's and Malle's models), theory extension",
-    goal="provide deep theoretical knowledge of attribution processes, identify gaps and opportunities for extension or combination of existing theories, and aid in formulating hypotheses for computational modeling",
-    role="ensure that our computational approach is grounded in robust social attribution theory, guide the operationalization of constructs, and interpret results in the context of real-world social responsibility attribution",
+computational_cognitive_scientist = Agent(
+    title="Computational Cognitive Scientist",
+    expertise="computational modeling of social cognition, causal attribution, theory of mind, and experimental design",
+    goal="translate Malle’s PMoB Attribution Model and other social attribution frameworks into computational paradigms, ensuring psychological validity and theoretical rigor in model comparison",
+    role="guide the mapping of social attribution theory to computational experiments, design assessment metrics, and interpret LLM outputs in the context of cognitive theories",
     model=model,
 )
 
-machine_learning_scientist = Agent(
-    title="Machine Learning Scientist",
-    expertise="deep learning, large language models (LLMs), natural language processing, interpretability and alignment of AI systems, computational modeling of human behavior",
-    goal="design and implement machine learning experiments, integrate attribution theory constructs into LLM prompts and analyses, and develop methods to quantitatively evaluate LLM outputs for alignment with human attribution patterns",
-    role="lead the development of computational pipelines, data collection, and evaluation metrics for testing LLM social attributions, and optimize models for prediction and analysis of attribution judgments",
+machine_learning_engineer = Agent(
+    title="Machine Learning Engineer",
+    expertise="large language models, natural language processing, chain-of-thought prompting, interpretability, and explainable AI",
+    goal="design and implement chain-of-thought prompting experiments to elicit responsibility attributions from LLMs, develop analysis pipelines, and ensure reproducibility and robustness in computational experiments",
+    role="engineer effective prompts, fine-tune LLMs if necessary, and build technical infrastructure for extracting and analyzing LLM attribution outputs",
     model=model,
 )
 
-experimental_methodologist = Agent(
-    title="Experimental Methodologist & Computational Modeler",
-    expertise="experimental design, behavioral science, statistical analysis, validation of computational models, agent-based simulation, quantitative analysis of social processes",
-    goal="design and oversee human subject studies to collect comparison data, ensure robust validation of computational approaches, and develop computational frameworks to simulate and test the extension or combination of social attribution theories",
-    role="develop rigorous experimental protocols for both computational and human studies, build and refine simulation models, analyze alignment between LLM-generated attributions and theory-driven expectations, and guide the interpretation of experimental results in light of theory",
+experimental_social_psychologist = Agent(
+    title="Experimental Social Psychologist",
+    expertise="social attribution theory, blame attribution, experimental design, and quantitative validation",
+    goal="adapt and validate attribution scenarios for LLM evaluation, ensure ecological and theoretical validity, and provide ground-truth human data for comparison",
+    role="design human experiments for comparison, interpret results from a social psychology perspective, and advise on alignment between computational and human attribution processes",
     model=model,
 )
 
 # Team members
 team_members = (
-    social_attribution_agent,
-    machine_learning_scientist,
-    experimental_methodologist,
+    computational_cognitive_scientist,
+    machine_learning_engineer,
+    experimental_social_psychologist,
     scientific_critic,
 )
