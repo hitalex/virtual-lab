@@ -124,6 +124,7 @@ def run_meeting(
             contexts=contexts,
             num_rounds=num_rounds,
         )
+        # User always start the discussion
         discussion.append({"agent": "User", "message": initial_message})
 
     # Loop through rounds
